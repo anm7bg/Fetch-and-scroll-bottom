@@ -9,7 +9,7 @@ export default function Document({ title="Terms and Conditions", content }) {
 
     return(
         <section>
-            <h2>{title}</h2>
+            <h1>{title}</h1>
             <article 
                 style={{overflow: "scroll", height: "100px"}} 
                 className="content"
