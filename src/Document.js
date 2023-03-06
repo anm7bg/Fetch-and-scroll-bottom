@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export default function Document({ title="Terms and Conditions", content }) {
 
     const scrollBottom = (e) => {
