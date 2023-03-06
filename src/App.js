@@ -1,41 +1,19 @@
-import "./App.css";
-import Document from "./Document";
-import { useEffect, useState } from "react";
+import Document from './Document';
+import React, { useState, useEffect } from 'react';
+
 
 function App() {
+  const [text, setText] = useState('');
 
-  const [post, setPost] = useState("");
-
-  useEffect(() => {
-    fetch('https://jaspervdj.be/lorem-markdownum/markdown.txt')
-    .then((res) => res.text())
-    .then((data) => {
-      data = data.slice(0, 5000);
-      console.log(data);
-      setPost(data);
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
+useEffect(() => {
+    fetch("https://jaspervdj.be/lorem-markdownum/markdown.txt")
+    .then(response => response.text())
+    .then(response => setText(response));
   },[]);
-
-
-
   return (
-    <div className="App">
-      <section class="hero">
-        <div class="hero-body">
-          <p class="title">A React Task</p>
-          <p class="subtitle">by Boom.dev</p>
-        </div>
-      </section>
-      <div class="container is-fullhd">
-        <div class="notification">
-          <Document content={post} />
-        </div>
-      </div>
+    <div>
+      <Document title="Terms and Conditions" content={text} />
     </div>
   );
 }
-
 export default App;
